@@ -20,18 +20,18 @@ conda activate <env>
 /usr/local/trinityrnaseq-Trinity-v2.8.5/util/abundance_estimates_to_matrix.pl --est_method RSEM --gene_trans_map none --out_prefix atlas_sc --name_sample_by_basedir C1/RSEM.genes.results C2/RSEM.genes.results ... > aem.out 2> aem.err
 ```
 
-3. Run differential gene expression analysis (samples.txt from this repo)
+3. Run differential gene expression analysis (samples_cac.txt from this repo)
 
 ```bash
-/usr/local/trinityrnaseq-Trinity-v2.8.5/Analysis/DifferentialExpression/run_DE_analysis.pl --matrix atlas_sc.isoform.counts.matrix --method voom --samples_file samples.txt > rde.out 2> rde.err```
+/usr/local/trinityrnaseq-Trinity-v2.8.5/Analysis/DifferentialExpression/run_DE_analysis.pl --matrix atlas_sc.isoform.counts.matrix --method voom --samples_file samples_cac.txt > rde.out 2> rde.err```
 ```
-4. Run principal components analysis (samples.txt from this repo)
+4. Run principal components analysis (samples_cac.txt from this repo)
 
 ```bash
 /usr/local/trinityrnaseq-Trinity-v2.8.5/Analysis/DifferentialExpression/PtR --matrix atlas_sc.isoform.counts.matrix --samples samples.txt --min_rowSums 10 --log2 --CPM --center_rows --prin_comp 3 > ptr.out 2> ptr.err  
 ```
 
-5. Cluster differentially expressed transcripts
+5. Cluster differentially expressed transcripts from cystencytes and arcaeocytes only (samples_ca.txt from this repo)
 ```bash
 /usr/local/trinityrnaseq-Trinity-v2.8.5/Analysis/DifferentialExpression/analyze_diff_expr.pl --matrix ../atlas_sc.isoform.counts.matrix --samples ../samples.txt -P 0.01 -C 1.5 --output ade_atlas > ade.out 2> ade.err
 ```
