@@ -1,7 +1,7 @@
 # Leys_et_al_Ephydatia_cell_atlas
 Analyses from Leys et al. - An atlas of morphology of the freshwater sponge Ephydatia muelleri
 
-1. To recreate the conda environment that was active during these analyses (see conda_package_versions in this repo). You will also need Trinity. We used version 2.8.5. All versions of Trinity can be downloaded here: https://github.com/trinityrnaseq/trinityrnaseq/releases 
+1. To recreate the conda environment that was active during these analyses (see conda_package_versions in this repo). You will also need the utility scripts distributed with Trinity. We used the scripts distributed with Trinity version 2.8.5. All versions of Trinity can be downloaded here: https://github.com/trinityrnaseq/trinityrnaseq/releases 
 
 ```bash
 conda create --name <env> --file conda_package_versions
