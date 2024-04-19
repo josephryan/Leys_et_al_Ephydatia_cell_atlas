@@ -1,6 +1,8 @@
 # Leys_et_al_Ephydatia_cell_atlas
 Analyses from Leys et al. - An atlas of morphology of the freshwater sponge Ephydatia muelleri
 
+### A. Differential Gene Expression and PCA
+
 1. To recreate the conda environment that was active during these analyses (see conda_package_versions in this repo). You will also need the utility scripts distributed with Trinity. We used the scripts distributed with Trinity version 2.8.5. All versions of Trinity can be downloaded here: https://github.com/trinityrnaseq/trinityrnaseq/releases 
 
 ```bash
@@ -35,3 +37,13 @@ conda activate <env>
 ```bash
 /usr/local/trinityrnaseq-Trinity-v2.8.5/Analysis/DifferentialExpression/analyze_diff_expr.pl --matrix ../atlas_sc.isoform.counts.matrix --samples ../samples.txt -P 0.01 -C 1.5 --output ade_atlas > ade.out 2> ade.err
 ```
+
+### B. Count genes with non-zero TPMs from the RSEM output in the above section
+The perl script count_non_zero_tpms.pl is included in this repository (output is included at bottom of script). The analysis was run with the following command
+```bash
+ls */RSEM.genes.results | perl -ne 'chomp; print "echo $_; perl count_non_zero_tpms.pl $_\n";' | sh
+```
+
+### C. Statistically analyze gene counts
+The R script gene_counts.R was used for statistical analyses of gene counts from within R Studio (output is included at bottom of script). 
+
