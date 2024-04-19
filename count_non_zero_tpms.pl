@@ -1,5 +1,9 @@
 #!/usr/bin/perl
 
+# Ran this by typing the following
+# ls */RSEM.genes.results | perl -ne 'chomp; print "echo $_; perl count_non_zero_tpms.pl $_\n";' | sh
+# output is at the bottom
+
 use strict;
 use warnings;
 
@@ -22,3 +26,35 @@ MAIN: {
     }
     print "$count\n";
 }
+
+# OUTPUT
+# A1/RSEM.genes.results
+# 923
+# A2/RSEM.genes.results
+# 1947
+# A3/RSEM.genes.results
+# 3263
+# A4/RSEM.genes.results
+# 13078
+# A5/RSEM.genes.results
+# 1844
+# C1/RSEM.genes.results
+# 1528
+# C2/RSEM.genes.results
+# 1793
+# C3/RSEM.genes.results
+# 2465
+# C4/RSEM.genes.results
+# 1845
+# C5/RSEM.genes.results
+# 2552
+# Cho1/RSEM.genes.results
+# 1455
+# Cho2/RSEM.genes.results
+# 566
+# Cho3/RSEM.genes.results
+# 307
+# Cho4/RSEM.genes.results
+# 623
+# Cho5/RSEM.genes.results
+# 92
